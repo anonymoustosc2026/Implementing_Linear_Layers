@@ -1,0 +1,86 @@
+Candidate-pool Greedy + SAT-guided CNOT circuit
+Depth = 7
+XOR count = 50
+
+Layer 0:
+    x4 ^= x12    // CNOT(12 -> 4)
+    x0 ^= x8    // CNOT(8 -> 0)
+    x5 ^= x13    // CNOT(13 -> 5)
+    x10 ^= x6    // CNOT(6 -> 10)
+    x14 ^= x2    // CNOT(2 -> 14)
+    x7 ^= x15    // CNOT(15 -> 7)
+    x1 ^= x9    // CNOT(9 -> 1)
+    x3 ^= x11    // CNOT(11 -> 3)
+
+Layer 1:
+    x12 ^= x0    // CNOT(0 -> 12)
+    x8 ^= x4    // CNOT(4 -> 8)
+    x15 ^= x11    // CNOT(11 -> 15)
+    x7 ^= x14    // CNOT(14 -> 7)
+    x13 ^= x10    // CNOT(10 -> 13)
+    x6 ^= x3    // CNOT(3 -> 6)
+    x2 ^= x9    // CNOT(9 -> 2)
+    x1 ^= x5    // CNOT(5 -> 1)
+
+Layer 2:
+    x4 ^= x0    // CNOT(0 -> 4)
+    x12 ^= x8    // CNOT(8 -> 12)
+    x13 ^= x3    // CNOT(3 -> 13)
+    x9 ^= x7    // CNOT(7 -> 9)
+    x2 ^= x6    // CNOT(6 -> 2)
+    x10 ^= x14    // CNOT(14 -> 10)
+    x15 ^= x1    // CNOT(1 -> 15)
+    x11 ^= x5    // CNOT(5 -> 11)
+
+Layer 3:
+    x0 ^= x1    // CNOT(1 -> 0)
+    x5 ^= x10    // CNOT(10 -> 5)
+    x6 ^= x15    // CNOT(15 -> 6)
+    x8 ^= x2    // CNOT(2 -> 8)
+    x11 ^= x12    // CNOT(12 -> 11)
+    x14 ^= x4    // CNOT(4 -> 14)
+
+Layer 4:
+    x1 ^= x5    // CNOT(5 -> 1)
+    x2 ^= x9    // CNOT(9 -> 2)
+    x3 ^= x4    // CNOT(4 -> 3)
+    x6 ^= x0    // CNOT(0 -> 6)
+    x7 ^= x14    // CNOT(14 -> 7)
+    x8 ^= x13    // CNOT(13 -> 8)
+    x12 ^= x10    // CNOT(10 -> 12)
+    x15 ^= x11    // CNOT(11 -> 15)
+
+Layer 5:
+    x1 ^= x9    // CNOT(9 -> 1)
+    x2 ^= x6    // CNOT(6 -> 2)
+    x4 ^= x0    // CNOT(0 -> 4)
+    x10 ^= x14    // CNOT(14 -> 10)
+    x12 ^= x8    // CNOT(8 -> 12)
+    x3 ^= x11    // CNOT(11 -> 3)
+    x5 ^= x13    // CNOT(13 -> 5)
+    x7 ^= x15    // CNOT(15 -> 7)
+
+Layer 6:
+    x0 ^= x8    // CNOT(8 -> 0)
+    x4 ^= x12    // CNOT(12 -> 4)
+    x10 ^= x6    // CNOT(6 -> 10)
+    x14 ^= x2    // CNOT(2 -> 14)
+
+Free final row permutation:
+final row i equals target row perm[i]
+row 0 -> target row 12
+row 1 -> target row 1
+row 2 -> target row 14
+row 3 -> target row 3
+row 4 -> target row 8
+row 5 -> target row 5
+row 6 -> target row 6
+row 7 -> target row 7
+row 8 -> target row 4
+row 9 -> target row 9
+row 10 -> target row 10
+row 11 -> target row 11
+row 12 -> target row 0
+row 13 -> target row 13
+row 14 -> target row 2
+row 15 -> target row 15

@@ -1,0 +1,52 @@
+Candidate-pool Greedy + SAT-guided CNOT circuit
+Depth = 3
+XOR count = 24
+
+Layer 0:
+    x8 ^= x0    // CNOT(0 -> 8)
+    x5 ^= x1    // CNOT(1 -> 5)
+    x14 ^= x2    // CNOT(2 -> 14)
+    x15 ^= x3    // CNOT(3 -> 15)
+    x11 ^= x7    // CNOT(7 -> 11)
+    x13 ^= x9    // CNOT(9 -> 13)
+    x6 ^= x10    // CNOT(10 -> 6)
+    x4 ^= x12    // CNOT(12 -> 4)
+
+Layer 1:
+    x3 ^= x11    // CNOT(11 -> 3)
+    x12 ^= x8    // CNOT(8 -> 12)
+    x9 ^= x5    // CNOT(5 -> 9)
+    x2 ^= x6    // CNOT(6 -> 2)
+    x0 ^= x4    // CNOT(4 -> 0)
+    x1 ^= x13    // CNOT(13 -> 1)
+    x7 ^= x15    // CNOT(15 -> 7)
+    x10 ^= x14    // CNOT(14 -> 10)
+
+Layer 2:
+    x13 ^= x9    // CNOT(9 -> 13)
+    x8 ^= x0    // CNOT(0 -> 8)
+    x6 ^= x10    // CNOT(10 -> 6)
+    x15 ^= x3    // CNOT(3 -> 15)
+    x11 ^= x7    // CNOT(7 -> 11)
+    x4 ^= x12    // CNOT(12 -> 4)
+    x14 ^= x2    // CNOT(2 -> 14)
+    x5 ^= x1    // CNOT(1 -> 5)
+
+Free final row permutation:
+final row i equals target row perm[i]
+row 0 -> target row 8
+row 1 -> target row 5
+row 2 -> target row 14
+row 3 -> target row 15
+row 4 -> target row 12
+row 5 -> target row 1
+row 6 -> target row 10
+row 7 -> target row 11
+row 8 -> target row 0
+row 9 -> target row 13
+row 10 -> target row 6
+row 11 -> target row 7
+row 12 -> target row 4
+row 13 -> target row 9
+row 14 -> target row 2
+row 15 -> target row 3

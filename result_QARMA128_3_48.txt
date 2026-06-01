@@ -1,0 +1,92 @@
+Candidate-pool Greedy + SAT-guided CNOT circuit
+Depth = 3
+XOR count = 48
+
+Layer 0:
+    x20 ^= x0    // CNOT(0 -> 20)
+    x22 ^= x2    // CNOT(2 -> 22)
+    x17 ^= x5    // CNOT(5 -> 17)
+    x28 ^= x8    // CNOT(8 -> 28)
+    x29 ^= x9    // CNOT(9 -> 29)
+    x30 ^= x10    // CNOT(10 -> 30)
+    x31 ^= x11    // CNOT(11 -> 31)
+    x24 ^= x12    // CNOT(12 -> 24)
+    x27 ^= x15    // CNOT(15 -> 27)
+    x4 ^= x16    // CNOT(16 -> 4)
+    x6 ^= x18    // CNOT(18 -> 6)
+    x7 ^= x19    // CNOT(19 -> 7)
+    x1 ^= x21    // CNOT(21 -> 1)
+    x3 ^= x23    // CNOT(23 -> 3)
+    x13 ^= x25    // CNOT(25 -> 13)
+    x14 ^= x26    // CNOT(26 -> 14)
+
+Layer 1:
+    x5 ^= x24    // CNOT(24 -> 5)
+    x26 ^= x1    // CNOT(1 -> 26)
+    x23 ^= x30    // CNOT(30 -> 23)
+    x2 ^= x29    // CNOT(29 -> 2)
+    x21 ^= x28    // CNOT(28 -> 21)
+    x10 ^= x17    // CNOT(17 -> 10)
+    x16 ^= x31    // CNOT(31 -> 16)
+    x0 ^= x27    // CNOT(27 -> 0)
+    x15 ^= x22    // CNOT(22 -> 15)
+    x12 ^= x7    // CNOT(7 -> 12)
+    x19 ^= x14    // CNOT(14 -> 19)
+    x18 ^= x13    // CNOT(13 -> 18)
+    x8 ^= x3    // CNOT(3 -> 8)
+    x9 ^= x4    // CNOT(4 -> 9)
+    x25 ^= x20    // CNOT(20 -> 25)
+    x11 ^= x6    // CNOT(6 -> 11)
+
+Layer 2:
+    x7 ^= x19    // CNOT(19 -> 7)
+    x14 ^= x26    // CNOT(26 -> 14)
+    x29 ^= x9    // CNOT(9 -> 29)
+    x30 ^= x10    // CNOT(10 -> 30)
+    x17 ^= x5    // CNOT(5 -> 17)
+    x4 ^= x16    // CNOT(16 -> 4)
+    x27 ^= x15    // CNOT(15 -> 27)
+    x28 ^= x8    // CNOT(8 -> 28)
+    x6 ^= x18    // CNOT(18 -> 6)
+    x20 ^= x0    // CNOT(0 -> 20)
+    x3 ^= x23    // CNOT(23 -> 3)
+    x31 ^= x11    // CNOT(11 -> 31)
+    x22 ^= x2    // CNOT(2 -> 22)
+    x13 ^= x25    // CNOT(25 -> 13)
+    x24 ^= x12    // CNOT(12 -> 24)
+    x1 ^= x21    // CNOT(21 -> 1)
+
+Free final row permutation:
+final row i equals target row perm[i]
+row 0 -> target row 20
+row 1 -> target row 21
+row 2 -> target row 22
+row 3 -> target row 23
+row 4 -> target row 16
+row 5 -> target row 17
+row 6 -> target row 18
+row 7 -> target row 19
+row 8 -> target row 28
+row 9 -> target row 29
+row 10 -> target row 30
+row 11 -> target row 31
+row 12 -> target row 24
+row 13 -> target row 25
+row 14 -> target row 26
+row 15 -> target row 27
+row 16 -> target row 4
+row 17 -> target row 5
+row 18 -> target row 6
+row 19 -> target row 7
+row 20 -> target row 0
+row 21 -> target row 1
+row 22 -> target row 2
+row 23 -> target row 3
+row 24 -> target row 12
+row 25 -> target row 13
+row 26 -> target row 14
+row 27 -> target row 15
+row 28 -> target row 8
+row 29 -> target row 9
+row 30 -> target row 10
+row 31 -> target row 11

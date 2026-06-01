@@ -1,0 +1,154 @@
+Continued SAT-optimized CNOT circuit
+Depth = 8
+XOR count = 100
+
+Layer 0:
+    x2 ^= x26    // CNOT(26 -> 2)
+    x3 ^= x9    // CNOT(9 -> 3)
+    x4 ^= x12    // CNOT(12 -> 4)
+    x5 ^= x13    // CNOT(13 -> 5)
+    x8 ^= x0    // CNOT(0 -> 8)
+    x14 ^= x30    // CNOT(30 -> 14)
+    x18 ^= x10    // CNOT(10 -> 18)
+    x19 ^= x25    // CNOT(25 -> 19)
+    x21 ^= x29    // CNOT(29 -> 21)
+    x22 ^= x6    // CNOT(6 -> 22)
+    x24 ^= x16    // CNOT(16 -> 24)
+    x27 ^= x1    // CNOT(1 -> 27)
+    x31 ^= x15    // CNOT(15 -> 31)
+
+Layer 1:
+    x0 ^= x26    // CNOT(26 -> 0)
+    x2 ^= x24    // CNOT(24 -> 2)
+    x7 ^= x31    // CNOT(31 -> 7)
+    x9 ^= x19    // CNOT(19 -> 9)
+    x11 ^= x17    // CNOT(17 -> 11)
+    x12 ^= x28    // CNOT(28 -> 12)
+    x14 ^= x22    // CNOT(22 -> 14)
+    x15 ^= x23    // CNOT(23 -> 15)
+    x16 ^= x1    // CNOT(1 -> 16)
+    x18 ^= x8    // CNOT(8 -> 18)
+    x20 ^= x4    // CNOT(4 -> 20)
+    x21 ^= x5    // CNOT(5 -> 21)
+    x25 ^= x3    // CNOT(3 -> 25)
+    x29 ^= x13    // CNOT(13 -> 29)
+
+Layer 2:
+    x0 ^= x17    // CNOT(17 -> 0)
+    x5 ^= x14    // CNOT(14 -> 5)
+    x7 ^= x23    // CNOT(23 -> 7)
+    x11 ^= x24    // CNOT(24 -> 11)
+    x15 ^= x31    // CNOT(31 -> 15)
+    x16 ^= x10    // CNOT(10 -> 16)
+    x20 ^= x28    // CNOT(28 -> 20)
+    x27 ^= x8    // CNOT(8 -> 27)
+    x30 ^= x6    // CNOT(6 -> 30)
+
+Layer 3:
+    x0 ^= x3    // CNOT(3 -> 0)
+    x1 ^= x11    // CNOT(11 -> 1)
+    x4 ^= x29    // CNOT(29 -> 4)
+    x6 ^= x31    // CNOT(31 -> 6)
+    x9 ^= x8    // CNOT(8 -> 9)
+    x15 ^= x12    // CNOT(12 -> 15)
+    x16 ^= x19    // CNOT(19 -> 16)
+    x17 ^= x27    // CNOT(27 -> 17)
+    x25 ^= x24    // CNOT(24 -> 25)
+    x28 ^= x22    // CNOT(22 -> 28)
+    x30 ^= x20    // CNOT(20 -> 30)
+
+Layer 4:
+    x6 ^= x15    // CNOT(15 -> 6)
+    x8 ^= x2    // CNOT(2 -> 8)
+    x10 ^= x0    // CNOT(0 -> 10)
+    x12 ^= x21    // CNOT(21 -> 12)
+    x13 ^= x30    // CNOT(30 -> 13)
+    x19 ^= x25    // CNOT(25 -> 19)
+    x22 ^= x7    // CNOT(7 -> 22)
+    x23 ^= x4    // CNOT(4 -> 23)
+    x24 ^= x18    // CNOT(18 -> 24)
+    x26 ^= x16    // CNOT(16 -> 26)
+    x27 ^= x1    // CNOT(1 -> 27)
+    x28 ^= x5    // CNOT(5 -> 28)
+    x29 ^= x14    // CNOT(14 -> 29)
+    x31 ^= x20    // CNOT(20 -> 31)
+
+Layer 5:
+    x0 ^= x17    // CNOT(17 -> 0)
+    x3 ^= x18    // CNOT(18 -> 3)
+    x4 ^= x28    // CNOT(28 -> 4)
+    x5 ^= x13    // CNOT(13 -> 5)
+    x7 ^= x31    // CNOT(31 -> 7)
+    x10 ^= x25    // CNOT(25 -> 10)
+    x11 ^= x24    // CNOT(24 -> 11)
+    x15 ^= x23    // CNOT(23 -> 15)
+    x16 ^= x1    // CNOT(1 -> 16)
+    x19 ^= x2    // CNOT(2 -> 19)
+    x20 ^= x12    // CNOT(12 -> 20)
+    x21 ^= x29    // CNOT(29 -> 21)
+    x26 ^= x9    // CNOT(9 -> 26)
+    x27 ^= x8    // CNOT(8 -> 27)
+    x30 ^= x6    // CNOT(6 -> 30)
+
+Layer 6:
+    x0 ^= x26    // CNOT(26 -> 0)
+    x2 ^= x24    // CNOT(24 -> 2)
+    x3 ^= x9    // CNOT(9 -> 3)
+    x4 ^= x29    // CNOT(29 -> 4)
+    x5 ^= x31    // CNOT(31 -> 5)
+    x11 ^= x17    // CNOT(17 -> 11)
+    x13 ^= x7    // CNOT(7 -> 13)
+    x14 ^= x22    // CNOT(22 -> 14)
+    x15 ^= x12    // CNOT(12 -> 15)
+    x16 ^= x10    // CNOT(10 -> 16)
+    x18 ^= x8    // CNOT(8 -> 18)
+    x28 ^= x20    // CNOT(20 -> 28)
+
+Layer 7:
+    x24 ^= x0    // CNOT(0 -> 24)
+    x8 ^= x16    // CNOT(16 -> 8)
+    x22 ^= x6    // CNOT(6 -> 22)
+    x14 ^= x30    // CNOT(30 -> 14)
+    x7 ^= x23    // CNOT(23 -> 7)
+    x29 ^= x13    // CNOT(13 -> 29)
+    x21 ^= x5    // CNOT(5 -> 21)
+    x31 ^= x15    // CNOT(15 -> 31)
+    x2 ^= x10    // CNOT(10 -> 2)
+    x18 ^= x26    // CNOT(26 -> 18)
+    x12 ^= x28    // CNOT(28 -> 12)
+    x20 ^= x4    // CNOT(4 -> 20)
+
+Free final row permutation:
+final row i equals target row perm[i]
+row 0 -> target row 10
+row 1 -> target row 11
+row 2 -> target row 8
+row 3 -> target row 25
+row 4 -> target row 28
+row 5 -> target row 5
+row 6 -> target row 6
+row 7 -> target row 7
+row 8 -> target row 2
+row 9 -> target row 19
+row 10 -> target row 0
+row 11 -> target row 1
+row 12 -> target row 20
+row 13 -> target row 13
+row 14 -> target row 14
+row 15 -> target row 31
+row 16 -> target row 26
+row 17 -> target row 27
+row 18 -> target row 24
+row 19 -> target row 9
+row 20 -> target row 12
+row 21 -> target row 21
+row 22 -> target row 22
+row 23 -> target row 23
+row 24 -> target row 18
+row 25 -> target row 3
+row 26 -> target row 16
+row 27 -> target row 17
+row 28 -> target row 4
+row 29 -> target row 29
+row 30 -> target row 30
+row 31 -> target row 15

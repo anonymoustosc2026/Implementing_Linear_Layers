@@ -1,0 +1,167 @@
+Continued SAT-optimized CNOT circuit
+Depth = 9
+XOR count = 111
+
+Layer 0:
+    x0 ^= x8    // CNOT(8 -> 0)
+    x3 ^= x11    // CNOT(11 -> 3)
+    x4 ^= x7    // CNOT(7 -> 4)
+    x5 ^= x21    // CNOT(21 -> 5)
+    x13 ^= x29    // CNOT(29 -> 13)
+    x14 ^= x6    // CNOT(6 -> 14)
+    x16 ^= x19    // CNOT(19 -> 16)
+    x20 ^= x23    // CNOT(23 -> 20)
+    x22 ^= x30    // CNOT(30 -> 22)
+    x24 ^= x27    // CNOT(27 -> 24)
+    x28 ^= x31    // CNOT(31 -> 28)
+
+Layer 1:
+    x0 ^= x3    // CNOT(3 -> 0)
+    x1 ^= x17    // CNOT(17 -> 1)
+    x4 ^= x20    // CNOT(20 -> 4)
+    x5 ^= x13    // CNOT(13 -> 5)
+    x6 ^= x30    // CNOT(30 -> 6)
+    x7 ^= x15    // CNOT(15 -> 7)
+    x8 ^= x11    // CNOT(11 -> 8)
+    x12 ^= x28    // CNOT(28 -> 12)
+    x14 ^= x22    // CNOT(22 -> 14)
+    x23 ^= x31    // CNOT(31 -> 23)
+    x24 ^= x16    // CNOT(16 -> 24)
+    x25 ^= x9    // CNOT(9 -> 25)
+    x26 ^= x18    // CNOT(18 -> 26)
+    x27 ^= x19    // CNOT(19 -> 27)
+    x29 ^= x21    // CNOT(21 -> 29)
+
+Layer 2:
+    x0 ^= x24    // CNOT(24 -> 0)
+    x2 ^= x25    // CNOT(25 -> 2)
+    x7 ^= x23    // CNOT(23 -> 7)
+    x8 ^= x1    // CNOT(1 -> 8)
+    x9 ^= x16    // CNOT(16 -> 9)
+    x15 ^= x4    // CNOT(4 -> 15)
+    x17 ^= x26    // CNOT(26 -> 17)
+    x18 ^= x10    // CNOT(10 -> 18)
+    x19 ^= x11    // CNOT(11 -> 19)
+    x27 ^= x3    // CNOT(3 -> 27)
+    x28 ^= x20    // CNOT(20 -> 28)
+    x31 ^= x12    // CNOT(12 -> 31)
+
+Layer 3:
+    x2 ^= x10    // CNOT(10 -> 2)
+    x8 ^= x26    // CNOT(26 -> 8)
+    x9 ^= x17    // CNOT(17 -> 9)
+    x11 ^= x27    // CNOT(27 -> 11)
+    x12 ^= x15    // CNOT(15 -> 12)
+    x13 ^= x7    // CNOT(7 -> 13)
+    x18 ^= x3    // CNOT(3 -> 18)
+    x19 ^= x1    // CNOT(1 -> 19)
+    x21 ^= x6    // CNOT(6 -> 21)
+    x22 ^= x14    // CNOT(14 -> 22)
+    x24 ^= x25    // CNOT(25 -> 24)
+    x28 ^= x5    // CNOT(5 -> 28)
+    x30 ^= x23    // CNOT(23 -> 30)
+    x31 ^= x4    // CNOT(4 -> 31)
+
+Layer 4:
+    x6 ^= x12    // CNOT(12 -> 6)
+    x11 ^= x3    // CNOT(3 -> 11)
+    x15 ^= x29    // CNOT(29 -> 15)
+    x16 ^= x2    // CNOT(2 -> 16)
+    x17 ^= x18    // CNOT(18 -> 17)
+    x20 ^= x13    // CNOT(13 -> 20)
+    x21 ^= x23    // CNOT(23 -> 21)
+    x22 ^= x7    // CNOT(7 -> 22)
+    x24 ^= x1    // CNOT(1 -> 24)
+    x25 ^= x27    // CNOT(27 -> 25)
+    x30 ^= x28    // CNOT(28 -> 30)
+    x31 ^= x5    // CNOT(5 -> 31)
+
+Layer 5:
+    x1 ^= x17    // CNOT(17 -> 1)
+    x3 ^= x0    // CNOT(0 -> 3)
+    x4 ^= x14    // CNOT(14 -> 4)
+    x10 ^= x24    // CNOT(24 -> 10)
+    x11 ^= x9    // CNOT(9 -> 11)
+    x15 ^= x28    // CNOT(28 -> 15)
+    x19 ^= x25    // CNOT(25 -> 19)
+    x20 ^= x22    // CNOT(22 -> 20)
+    x23 ^= x12    // CNOT(12 -> 23)
+    x26 ^= x27    // CNOT(27 -> 26)
+    x30 ^= x31    // CNOT(31 -> 30)
+
+Layer 6:
+    x1 ^= x27    // CNOT(27 -> 1)
+    x5 ^= x13    // CNOT(13 -> 5)
+    x6 ^= x30    // CNOT(30 -> 6)
+    x7 ^= x15    // CNOT(15 -> 7)
+    x9 ^= x17    // CNOT(17 -> 9)
+    x10 ^= x19    // CNOT(19 -> 10)
+    x11 ^= x8    // CNOT(8 -> 11)
+    x12 ^= x4    // CNOT(4 -> 12)
+    x18 ^= x3    // CNOT(3 -> 18)
+    x21 ^= x22    // CNOT(22 -> 21)
+    x28 ^= x20    // CNOT(20 -> 28)
+    x29 ^= x14    // CNOT(14 -> 29)
+
+Layer 7:
+    x0 ^= x24    // CNOT(24 -> 0)
+    x2 ^= x25    // CNOT(25 -> 2)
+    x9 ^= x16    // CNOT(16 -> 9)
+    x14 ^= x22    // CNOT(22 -> 14)
+    x15 ^= x23    // CNOT(23 -> 15)
+    x18 ^= x10    // CNOT(10 -> 18)
+    x19 ^= x11    // CNOT(11 -> 19)
+    x27 ^= x3    // CNOT(3 -> 27)
+    x29 ^= x21    // CNOT(21 -> 29)
+    x31 ^= x7    // CNOT(7 -> 31)
+
+Layer 8:
+    x0 ^= x8    // CNOT(8 -> 0)
+    x2 ^= x10    // CNOT(10 -> 2)
+    x3 ^= x11    // CNOT(11 -> 3)
+    x4 ^= x20    // CNOT(20 -> 4)
+    x5 ^= x21    // CNOT(21 -> 5)
+    x12 ^= x28    // CNOT(28 -> 12)
+    x13 ^= x29    // CNOT(29 -> 13)
+    x14 ^= x30    // CNOT(30 -> 14)
+    x22 ^= x6    // CNOT(6 -> 22)
+    x23 ^= x31    // CNOT(31 -> 23)
+    x24 ^= x16    // CNOT(16 -> 24)
+    x25 ^= x9    // CNOT(9 -> 25)
+    x26 ^= x18    // CNOT(18 -> 26)
+    x27 ^= x19    // CNOT(19 -> 27)
+
+Free final row permutation:
+final row i equals target row perm[i]
+row 0 -> target row 9
+row 1 -> target row 10
+row 2 -> target row 11
+row 3 -> target row 24
+row 4 -> target row 13
+row 5 -> target row 14
+row 6 -> target row 15
+row 7 -> target row 28
+row 8 -> target row 1
+row 9 -> target row 18
+row 10 -> target row 3
+row 11 -> target row 16
+row 12 -> target row 5
+row 13 -> target row 6
+row 14 -> target row 31
+row 15 -> target row 20
+row 16 -> target row 25
+row 17 -> target row 26
+row 18 -> target row 27
+row 19 -> target row 8
+row 20 -> target row 29
+row 21 -> target row 30
+row 22 -> target row 7
+row 23 -> target row 4
+row 24 -> target row 17
+row 25 -> target row 2
+row 26 -> target row 19
+row 27 -> target row 0
+row 28 -> target row 21
+row 29 -> target row 22
+row 30 -> target row 23
+row 31 -> target row 12

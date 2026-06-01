@@ -1,0 +1,98 @@
+Continued SAT-optimized CNOT circuit
+Depth = 9
+XOR count = 58
+
+Layer 0:
+    x0 ^= x6    // CNOT(6 -> 0)
+    x1 ^= x15    // CNOT(15 -> 1)
+    x4 ^= x10    // CNOT(10 -> 4)
+    x5 ^= x3    // CNOT(3 -> 5)
+    x8 ^= x14    // CNOT(14 -> 8)
+    x9 ^= x7    // CNOT(7 -> 9)
+    x13 ^= x2    // CNOT(2 -> 13)
+
+Layer 1:
+    x1 ^= x6    // CNOT(6 -> 1)
+    x5 ^= x10    // CNOT(10 -> 5)
+    x9 ^= x14    // CNOT(14 -> 9)
+    x12 ^= x2    // CNOT(2 -> 12)
+    x13 ^= x4    // CNOT(4 -> 13)
+
+Layer 2:
+    x1 ^= x8    // CNOT(8 -> 1)
+    x6 ^= x12    // CNOT(12 -> 6)
+    x9 ^= x0    // CNOT(0 -> 9)
+    x10 ^= x15    // CNOT(15 -> 10)
+    x14 ^= x4    // CNOT(4 -> 14)
+
+Layer 3:
+    x2 ^= x8    // CNOT(8 -> 2)
+    x5 ^= x12    // CNOT(12 -> 5)
+    x10 ^= x0    // CNOT(0 -> 10)
+    x13 ^= x11    // CNOT(11 -> 13)
+    x14 ^= x3    // CNOT(3 -> 14)
+
+Layer 4:
+    x0 ^= x13    // CNOT(13 -> 0)
+    x3 ^= x14    // CNOT(14 -> 3)
+    x4 ^= x1    // CNOT(1 -> 4)
+    x7 ^= x2    // CNOT(2 -> 7)
+    x8 ^= x5    // CNOT(5 -> 8)
+    x11 ^= x6    // CNOT(6 -> 11)
+    x12 ^= x9    // CNOT(9 -> 12)
+    x15 ^= x10    // CNOT(10 -> 15)
+
+Layer 5:
+    x2 ^= x4    // CNOT(4 -> 2)
+    x3 ^= x0    // CNOT(0 -> 3)
+    x6 ^= x8    // CNOT(8 -> 6)
+    x9 ^= x10    // CNOT(10 -> 9)
+    x15 ^= x12    // CNOT(12 -> 15)
+
+Layer 6:
+    x1 ^= x7    // CNOT(7 -> 1)
+    x2 ^= x0    // CNOT(0 -> 2)
+    x3 ^= x12    // CNOT(12 -> 3)
+    x5 ^= x11    // CNOT(11 -> 5)
+    x6 ^= x4    // CNOT(4 -> 6)
+    x13 ^= x14    // CNOT(14 -> 13)
+    x15 ^= x8    // CNOT(8 -> 15)
+
+Layer 7:
+    x6 ^= x14    // CNOT(14 -> 6)
+    x4 ^= x9    // CNOT(9 -> 4)
+    x0 ^= x5    // CNOT(5 -> 0)
+    x15 ^= x7    // CNOT(7 -> 15)
+    x2 ^= x10    // CNOT(10 -> 2)
+    x12 ^= x1    // CNOT(1 -> 12)
+    x8 ^= x13    // CNOT(13 -> 8)
+    x3 ^= x11    // CNOT(11 -> 3)
+
+Layer 8:
+    x4 ^= x3    // CNOT(3 -> 4)
+    x0 ^= x15    // CNOT(15 -> 0)
+    x12 ^= x6    // CNOT(6 -> 12)
+    x8 ^= x2    // CNOT(2 -> 8)
+    x5 ^= x10    // CNOT(10 -> 5)
+    x13 ^= x7    // CNOT(7 -> 13)
+    x1 ^= x11    // CNOT(11 -> 1)
+    x9 ^= x14    // CNOT(14 -> 9)
+
+Free final row permutation:
+final row i equals target row perm[i]
+row 0 -> target row 0
+row 1 -> target row 7
+row 2 -> target row 13
+row 3 -> target row 9
+row 4 -> target row 4
+row 5 -> target row 11
+row 6 -> target row 1
+row 7 -> target row 14
+row 8 -> target row 8
+row 9 -> target row 15
+row 10 -> target row 6
+row 11 -> target row 2
+row 12 -> target row 12
+row 13 -> target row 3
+row 14 -> target row 10
+row 15 -> target row 5
