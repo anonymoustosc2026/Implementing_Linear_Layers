@@ -1,65 +1,200 @@
-# Depth-Priority Greedy + SAT Search for CNOT Circuits
+# Low-Depth In-Place CNOT Synthesis
 
-This program searches for low-depth in-place CNOT implementations of binary linear layers.  
-It combines several greedy search strategies with a depth-first SAT-based local refinement.
-This program uses the CaDiCaL SAT solver.
+This repository searches for low-depth in-place CNOT implementations of binary linear layers.
 
-Example compilation command:
+The framework consists of two stages:
 
-g++ -O3 -std=c++17 sxor_depth_priority_satfix.cpp \
-    /mnt/f/cadical-master/build/libcadical.a \
-    -o sxor_search
+1. **Stage I: Candidate Generation and SAT Refinement**
+   Generates low-depth candidate circuits using layer-wise greedy search, multiple search entries, and SAT-based local refinement.
 
+2. **Stage II: Continuation Optimization**
+   Takes an existing circuit as input and further reduces its gate count and, optionally, its depth using SAT-based window resynthesis.
 
-Input format
+Both programs use the [CaDiCaL](https://github.com/arminbiere/cadical) SAT solver.
 
-The input matrix is read from standard input.
+## Files
+
+* `sxor_depth_priority_satfix.cpp`
+  Main program for Stage I candidate generation and SAT refinement.
+
+* `sxor_continue_opt_perm_sat_fix.cpp`
+  Continuation optimizer for Stage II.
+
+# Stage I: Candidate Generation and SAT Refinement
+
+## Compilation
+
+```bash
+g++ -O3 -std=c++17 \
+    sxor_depth_priority_satfix.cpp \
+    /path/to/cadical/build/libcadical.a \
+    -o sxor_depth_priority_satfix
+```
+
+Replace `/path/to/cadical/` with the actual path to your CaDiCaL installation.
+
+## Input Format
+
+The target binary matrix is read from standard input.
 
 The expected format is:
 
-1
-n n
+```text
+1 n n
 a_00 a_01 ... a_0,n-1
 a_10 a_11 ... a_1,n-1
 ...
 a_n-1,0 ... a_n-1,n-1
+```
 
+## Usage
 
-Basic command:
-./sxor_search greedy_rounds sat_rounds min_window max_window extra_gate_allow \
-    pool_per_depth conflict_limit output_file \
-    [perm_rounds] [block_rounds] [random_perm_count] [refine_depth_slack] [rng_seed] \
+```bash
+./sxor_depth_priority_satfix \
+    greedy_rounds \
+    sat_rounds \
+    min_window \
+    max_window \
+    extra_gate_allow \
+    pool_per_depth \
+    conflict_limit \
+    output_file \
+    [perm_rounds] \
+    [block_rounds] \
+    [random_perm_count] \
+    [refine_depth_slack] \
+    [rng_seed] \
     < matrix.txt
+```
 
-Example:
+## Example
 
-./sxor_search 50000 3 2 5 8 20 200000 result.txt \
-    2000 50000 64 0 12345 < AES.txt
+```bash
+./sxor_depth_priority_satfix \
+    50000 3 2 5 8 20 200000 result.txt \
+    2000 50000 64 0 12345 \
+    < AES.txt
+```
 
-Parameters
-greedy_rounds:	Number of greedy searches on the original target matrix.
+## Parameters
 
-sat_rounds:	Number of SAT refinement rounds for each selected candidate.
+| Parameter            | Description                                                                                         |
+| -------------------- | --------------------------------------------------------------------------------------------------- |
+| `greedy_rounds`      | Number of greedy searches on the original target matrix.                                            |
+| `sat_rounds`         | Number of SAT refinement rounds for each selected candidate.                                        |
+| `min_window`         | Minimum window length for SAT local refinement.                                                     |
+| `max_window`         | Maximum window length for SAT local refinement.                                                     |
+| `extra_gate_allow`   | Extra CNOT gates allowed when SAT attempts to reduce depth.                                         |
+| `pool_per_depth`     | Maximum number of candidates retained for each depth.                                               |
+| `conflict_limit`     | CaDiCaL conflict limit for each SAT call.                                                           |
+| `output_file`        | File used to save the best circuit found.                                                           |
+| `perm_rounds`        | Number of greedy searches on permutation-equivalent targets.                                        |
+| `block_rounds`       | Number of block-cyclic prefix-seed searches. Mainly useful for 32-bit AES MixColumns-like matrices. |
+| `random_perm_count`  | Number of random permutations added to the structure-aware permutation set.                         |
+| `refine_depth_slack` | Apply SAT refinement to candidates with depth at most `best_depth + refine_depth_slack`.            |
+| `rng_seed`           | Optional fixed random seed for reproducible experiments.                                            |
 
-min_window:	Minimum window length for SAT local refinement.
+# Stage II: Continuation Optimization
 
-max_window:	Maximum window length for SAT local refinement.
+Stage II takes an existing CNOT circuit, such as an output generated by Stage I, and continues its optimization.
 
-extra_gate_allow:	Extra CNOT gates allowed in SAT refinement when trying to reduce depth.
+The optimizer repeatedly applies:
 
-pool_per_depth:	Maximum number of candidates kept for each depth.
+* single-gate deletion;
 
-conflict_limit:	CaDiCaL conflict limit for each SAT call.
+* same-depth SAT resynthesis for gate-count reduction;
 
-output_file:	File used to save the best circuit found.
+* optional depth-reducing SAT resynthesis.
 
-perm_rounds:	Number of greedy searches on permuted equivalent targets.
+SAT is applied only to short contiguous windows rather than to the complete circuit.
 
-block_rounds:	Number of AES block-cyclic prefix seed searches. Mainly useful for 32-bit AES MixColumn-like matrices.
+## Compilation
 
-random_perm_count:	Number of random permutations added to the structure-aware permutation set.
+```bash
+g++ -O3 -std=c++17 \
+    sxor_continue_opt_perm_sat_fix.cpp \
+    /path/to/cadical/build/libcadical.a \
+    -o sxor_continue_opt_perm_sat_fix
+```
 
-refine_depth_slack:	SAT refinement is applied to candidates with depth at most best_depth + refine_depth_slack.
+Replace `/path/to/cadical/` with the actual path to your CaDiCaL installation.
 
-rng_seed:	Optional fixed random seed for reproducible experiments.
+## Usage
 
+```bash
+./sxor_continue_opt_perm_sat_fix \
+    matrix_file \
+    initial_circuit \
+    output_circuit \
+    max_passes \
+    min_window \
+    max_window \
+    conflict_limit \
+    try_depth_reduce
+```
+
+## Example
+
+```bash
+./sxor_continue_opt_perm_sat_fix \
+    ../AES.txt \
+    result_AES.txt \
+    result_AES_opt.txt \
+    10 2 5 1000000 0
+```
+
+## Parameters
+
+| Parameter          | Description                                                                            |
+| ------------------ | -------------------------------------------------------------------------------------- |
+| `matrix_file`      | Target binary matrix file.                                                             |
+| `initial_circuit`  | Existing circuit to be further optimized.                                              |
+| `output_circuit`   | File used to save the optimized circuit.                                               |
+| `max_passes`       | Maximum number of continuation optimization passes.                                    |
+| `min_window`       | Minimum SAT window length.                                                             |
+| `max_window`       | Maximum SAT window length.                                                             |
+| `conflict_limit`   | CaDiCaL conflict limit for each SAT call.                                              |
+| `try_depth_reduce` | Set to `1` to enable depth reduction, or `0` for same-depth gate-count reduction only. |
+
+For same-depth gate-count reduction:
+
+```bash
+./sxor_continue_opt_perm_sat_fix \
+    ../AES.txt \
+    result_AES.txt \
+    result_AES_opt.txt \
+    10 2 5 1000000 0
+```
+
+To also attempt depth reduction:
+
+```bash
+./sxor_continue_opt_perm_sat_fix \
+    ../AES.txt \
+    result_AES.txt \
+    result_AES_opt.txt \
+    10 2 5 1000000 1
+```
+
+# Recommended Workflow
+
+First, generate low-depth candidates using Stage I:
+
+```bash
+./sxor_depth_priority_satfix \
+    50000 3 2 5 8 20 200000 result_AES.txt \
+    2000 50000 64 0 12345 \
+    < AES.txt
+```
+
+Then continue optimizing the best circuit using Stage II:
+
+```bash
+./sxor_continue_opt_perm_sat_fix \
+    AES.txt \
+    result_AES.txt \
+    result_AES_opt.txt \
+    10 2 5 1000000 0
+```
+
+The two stages are complementary: Stage I explores different low-depth circuit structures, while Stage II performs further local SAT resynthesis to reduce the gate count and, when enabled, the circuit depth.
